@@ -1,0 +1,19 @@
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt"))()
+local win = lib:Window("Shadow X || Break In 2 (LOBBY)", Color3.new(44, 120, 224), Enum.KeyCode.RightControl)
+
+local tab = win:Tab("Roles")
+
+tab:Button("Hacker Roles", function()
+    game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole:FireServer("Phone", true, false)
+    lib:Notification("Notification", "Only Info Working!", "Ok!")
+end)
+
+tab:Button("Nerd Roles", function()
+    game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole:FireServer("Book", true, false)
+end)
+
+local changeclr = win:Tab("Change UI Color")
+
+changeclr:Colorpicker("Change UI Color", Color3.new(44/255, 120/255, 224/255), function(t)
+    lib:ChangePresetColor(Color3.new(t.R, t.G, t.B))
+end)
